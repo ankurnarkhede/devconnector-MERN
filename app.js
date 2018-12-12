@@ -1,10 +1,28 @@
-var express = require('express');
+const express = require('express');
+const mongoose = require('mongoose');
 
-var app = express();
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
+
+const app = express();
+
+
+// mongodb connection
+mongoose
+  .connect(process.env.MongoURI, {useNewUrlParser: true})
+  .then(() => console.log("Connected to", process.env.MongoURI))
+  .catch(err => console.log(err));
 
 app.get('/', (req, res, next) => {
   res.send("hello");
 });
+
+
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
+
 
 
 // catch 404 and forward to error handler
