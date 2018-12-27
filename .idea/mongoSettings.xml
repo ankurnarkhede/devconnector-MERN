@@ -4,15 +4,19 @@
     <option name="serverConfigurations">
       <list>
         <ServerConfiguration>
-          <option name="label" value="MongoDB-local" />
+          <option name="authenticationDatabase" value="devconnector-react" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds119685.mlab.com:19685/devconnector-react" />
+          <option name="password" value="ankur1" />
           <option name="serverUrls">
             <list>
-              <option value="localhost:27017" />
+              <option value="ds119685.mlab.com:19685" />
             </list>
           </option>
           <option name="sshTunnelingConfiguration">
             <SshTunnelingConfiguration />
           </option>
+          <option name="username" value="ankur" />
         </ServerConfiguration>
       </list>
     </option>

@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-require('dotenv').load()
+var keys = require('../config/keys')
 
 var app = require('../app')
 var debug = require('debug')('devconnector-mean:server')
@@ -14,7 +14,7 @@ var http = require('http')
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || 3000)
+var port = normalizePort(keys.PORT || 3000)
 app.set('port', port)
 
 /**

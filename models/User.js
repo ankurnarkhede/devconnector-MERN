@@ -18,14 +18,16 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  password_text: {
+    type: String
+  },
   avatar: {
-    type: String,
-    required: true
+    type: String
   },
   date: {
     type: Date,
     default: Date.now
   }
-})
+}, { timestamps: true })
 
 module.exports = User = mongoose.model('users', UserSchema)
