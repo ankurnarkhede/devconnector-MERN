@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 /**
  * @route GET api/posts/test
@@ -9,11 +9,9 @@ const router = express.Router();
  */
 router.get('/test', (req, res) => {
   res.json({
-    msg: "Users works"
+    msg: 'Users works'
   })
-});
+})
 
-
-
-module.exports = router;
+module.exports = router
 
