@@ -20,8 +20,6 @@ const User = require('../../models/User')
  */
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-  console.log('in /api/profile')
-
   const errors = {}
   Profile.findOne({ user: req.user.id })
     .then(profile => {
