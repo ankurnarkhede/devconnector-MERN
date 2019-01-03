@@ -40,6 +40,28 @@ router.get(
   })
 
 /**
+ * @route POST api/profile/all
+ * @desc GET pall profiles
+ * @access Public
+ *
+ */
+router.get('/all', (req, res) => {
+  const errors = {}
+
+  Profile.find()
+    .populate('user', ['name', 'avatar'])
+    .then(profiles => {
+      if (!profiles) {
+        errors.noprofile = 'There are no profiles'
+        return res.status(404).json(errors)
+      }
+      res.json(profiles)
+    })
+    .catch(err => res.status(404).json({ profile: 'There are no profiles' }))
+
+})
+
+/**
  * @route POST api/profile/handle/:handle
  * @desc GET profile by handle
  * @access Public
@@ -56,7 +78,7 @@ router.get('/handle/:handle', (req, res) => {
       }
       res.json(profile)
     })
-    .catch(err => res.status(404).json(err))
+    .catch(err => res.status(404).json({ profile: 'There is no profile for this user' }))
 
 })
 
@@ -78,7 +100,7 @@ router.get('/user/:user_id', (req, res) => {
       }
       res.json(profile)
     })
-    .catch(err => res.status(404).json(err))
+    .catch(err => res.status(404).json({ profile: 'There is no profile for this user' }))
 
 })
 
