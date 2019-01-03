@@ -40,6 +40,17 @@ router.get(
   })
 
 /**
+ * @route POST api/profile/handle/:handle
+ * @desc GET profile by handle
+ * @access Public
+ *
+ */
+router.get('/')
+
+
+
+
+/**
  * @route POST api/profile/
  * @desc Create user profile
  * @access Private
