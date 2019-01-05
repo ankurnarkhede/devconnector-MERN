@@ -268,9 +268,13 @@ router.delete(
           .map(item => item.id)
           .indexOf(req.params.exp_id)
 
-        // splice out of array
-        profile.experience.splice(removeIndex, 1)
-        profile.save().then(profile => res.json(profile))
+        if (removeIndex >= 0) {
+          // splice out of array
+          profile.experience.splice(removeIndex, 1)
+          profile.save().then(profile => res.json(profile))
+        } else {
+          res.status(404).json({ success: false, msg: 'Invalid exp_id' })
+        }
       })
       .catch(err => res.status(404).json(err))
   }
@@ -294,9 +298,14 @@ router.delete(
           .map(item => item.id)
           .indexOf(req.params.exp_id)
 
-        // splice out of array
-        profile.education.splice(removeIndex, 1)
-        profile.save().then(profile => res.json(profile))
+        if (removeIndex >= 0) {
+          // splice out of array
+          profile.education.splice(removeIndex, 1)
+          profile.save().then(profile => res.json(profile))
+        } else {
+          res.status(404).json({ success: false, msg: 'Invalid exp_id' })
+        }
+
       })
       .catch(err => res.status(404).json(err))
   }
