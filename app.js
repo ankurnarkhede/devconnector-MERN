@@ -49,9 +49,9 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
   // render the error page
-  res.status(err.status || 501)
-  // res.render('error')
-  res.json({ error: err })
+  res.status(err.status || 500)
+
+  res.json({ error: err, msg: 'Inside app.js error function' })
 
 })
 
