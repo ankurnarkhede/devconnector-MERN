@@ -16,8 +16,6 @@ const validateProfileInput = require('../../validation/profile')
 const validateExperienceInput = require('../../validation/experience')
 const validateEducationInput = require('../../validation/education')
 
-
-
 /**
  * @route GET api/profile/
  * @desc GET current user's profile
@@ -225,7 +223,6 @@ router.post(
   '/education',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     const { errors, isValid } = validateEducationInput(req.body)
 
     // Check Validation
@@ -246,10 +243,9 @@ router.post(
           description: req.body.description
         }
 
-        // add to experience array
+        // Add to exp array
         profile.education.unshift(newEdu)
         profile.save().then(profile => res.json(profile))
-
       })
   }
 )
