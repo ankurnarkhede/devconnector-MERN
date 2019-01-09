@@ -63,6 +63,7 @@ typings/
 .next
 
 #custom
-temp.js
+temp/temp.js
+temp/
 
 
