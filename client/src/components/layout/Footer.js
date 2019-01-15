@@ -2,7 +2,7 @@
  * Created by ankur at 14/1/19 10:34 PM.
  */
 
-import React, { Component } from 'react'
+import React from 'react'
 
 export default () => {
   return (
