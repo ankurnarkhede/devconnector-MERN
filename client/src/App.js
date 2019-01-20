@@ -40,7 +40,6 @@ if (localStorage.jwtToken) {
 
   }
 
-
 }
 
 class App extends Component {
