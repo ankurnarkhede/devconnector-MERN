@@ -2,7 +2,6 @@
  * Created by ankur at 29/12/18 7:48 PM.
  */
 
-
 const Validator = require('validator')
 const isEmpty = require('./is-empty')
 
@@ -28,5 +27,4 @@ module.exports = function validateLoginInput (data) {
     errors,
     isValid: isEmpty(errors)
   }
-
 }

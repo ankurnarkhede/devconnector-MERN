@@ -22,7 +22,4 @@ module.exports = function validatPostInput (data) {
     errors,
     isValid: isEmpty(errors)
   }
-
 }
-
-

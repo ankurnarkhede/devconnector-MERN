@@ -10,7 +10,6 @@ const passport = require('passport')
 const validateRegisterInput = require('../../validation/register')
 const validateLoginInput = require('../../validation/login')
 
-
 // load user model
 const User = require('../../models/User')
 
@@ -28,7 +27,6 @@ router.post('/register', (req, res) => {
     return res.status(400).json(errors)
   }
 
-
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
@@ -36,9 +34,9 @@ router.post('/register', (req, res) => {
         return res.status(400).json(errors)
       } else {
         const avatar = gravatar.url(req.body.email, {
-          s: '200', //size
-          r: 'pg',  //Rating
-          d: 'mm'  //Default
+          s: '200', // size
+          r: 'pg', // Rating
+          d: 'mm' // Default
         })
         const newUser = new User({
           name: req.body.name,
@@ -49,6 +47,7 @@ router.post('/register', (req, res) => {
         })
 
         bcrypt.genSalt(10, (err, salt) => {
+          if (err) throw err
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err
             newUser.password = hash
@@ -69,7 +68,6 @@ router.post('/register', (req, res) => {
  *
  */
 router.post('/login', (req, res) => {
-
   const { errors, isValid } = validateLoginInput(req.body)
 
   // check validation
@@ -93,7 +91,7 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password).then(isMatch => {
         if (isMatch) {
           // user matched
-          const payload = { id: user.id, name: user.name, avatar: user.avatar } //create JWT payload
+          const payload = { id: user.id, name: user.name, avatar: user.avatar } // create JWT payload
 
           // sign token
           jwt.sign(
@@ -101,6 +99,9 @@ router.post('/login', (req, res) => {
             keys.secretOrKey,
             { expiresIn: 604800 },
             (err, token) => {
+              if (err) {
+                throw err
+              }
               return res.json({
                 success: true,
                 token: 'Bearer ' + token
@@ -130,4 +131,3 @@ router.get('/current', passport.authenticate('jwt', { session: false }),
   })
 
 module.exports = router
-

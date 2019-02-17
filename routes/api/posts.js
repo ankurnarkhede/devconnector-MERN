@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose')
 const passport = require('passport')
 
 // import models
@@ -22,8 +21,10 @@ router.get(
     Post.find()
       .sort({ date: -1 })
       .then(posts => res.json(posts))
-      .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }))
-
+      .catch(err => res.status(404).json({
+        nopostsfound: 'No posts found',
+        error: err
+      }))
   }
 )
 
@@ -39,8 +40,10 @@ router.get(
     Post.findById(req.params.id)
       .sort({ date: -1 })
       .then(post => res.json(post))
-      .catch(err => res.status(404).json({ nopostfound: 'No post found with that ID' }))
-
+      .catch(err => res.status(404).json({
+        nopostfound: 'No post found with that ID',
+        error: err
+      }))
   }
 )
 
@@ -54,14 +57,12 @@ router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     const { errors, isValid } = validatPostInput(req.body)
 
     // check validation
     if (!isValid) {
       // if any error, send 400 with error object
       return res.status(400).json(errors)
-
     }
 
     const newPost = new Post({
@@ -72,7 +73,6 @@ router.post(
     })
 
     newPost.save().then(post => res.json(post))
-
   }
 )
 
@@ -97,7 +97,10 @@ router.delete(
             // delete
             post.remove().then(() => res.json({ success: true }))
           })
-          .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+          .catch(err => res.status(404).json({
+            postnotfound: 'No post found',
+            error: err
+          }))
       })
   }
 )
@@ -122,9 +125,8 @@ router.post(
             // Add the user id to likes array
             post.likes.unshift({ user: req.user.id })
             post.save().then(post => res.json(post))
-
           })
-          .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+          .catch(err => res.status(404).json({ postnotfound: 'No post found', error: err }))
       })
   }
 )
@@ -158,9 +160,8 @@ router.post(
             } else {
               res.status(404).json({ success: false, msg: 'Invalid post id' })
             }
-
           })
-          .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+          .catch(err => res.status(404).json({ postnotfound: 'No post found', error: err }))
       })
   }
 )
@@ -175,14 +176,12 @@ router.post(
   '/comment/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     const { errors, isValid } = validatPostInput(req.body)
 
     // check validation
     if (!isValid) {
       // if any error, send 400 with error object
       return res.status(400).json(errors)
-
     }
 
     Post.findById(req.params.id)
@@ -196,9 +195,8 @@ router.post(
         // add comment to array
         post.comments.unshift(newComment)
         post.save().then(post => res.json(post))
-
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+      .catch(err => res.status(404).json({ postnotfound: 'No post found', error: err }))
   }
 )
 
@@ -230,11 +228,9 @@ router.delete(
         } else {
           res.status(404).json({ success: false, msg: 'Invalid comment id' })
         }
-
       })
-      .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+      .catch(err => res.status(404).json({ postnotfound: 'No post found', error: err }))
   }
 )
 
 module.exports = router
-

@@ -7,7 +7,8 @@
     "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "standard-js": "./node_modules/.bin/standard --fix"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -27,6 +28,20 @@
     "validator": "^10.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.8"
+    "babel-eslint": "^9.0.0",
+    "nodemon": "^1.18.8",
+    "pre-commit": "^1.2.2",
+    "standard": "^12.0.1"
+  },
+  "pre-commit": [
+    "standard-js"
+  ],
+  "standard": {
+    "ignore": [],
+    "globals": [
+      "localStorage",
+      "createError"
+    ],
+    "parser": "babel-eslint"
   }
 }

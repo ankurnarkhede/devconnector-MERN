@@ -2,7 +2,6 @@
  * Created by ankur at 29/12/18 7:22 PM.
  */
 
-
 const JWTStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
@@ -15,8 +14,8 @@ opts.secretOrKey = keys.secretOrKey
 
 module.exports = passport => {
   passport.use(
-    new JWTStrategy(opts, (jwt_payload, done) => {
-      User.findById(jwt_payload.id)
+    new JWTStrategy(opts, (jwtPayload, done) => {
+      User.findById(jwtPayload.id)
         .then(user => {
           if (user) {
             return done(null, user)
@@ -27,5 +26,3 @@ module.exports = passport => {
     })
   )
 }
-
-

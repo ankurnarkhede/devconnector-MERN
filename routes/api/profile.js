@@ -4,7 +4,6 @@
 
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose')
 const passport = require('passport')
 
 // Load models
@@ -26,7 +25,6 @@ router.get(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     const errors = {}
     Profile.findOne({ user: req.user.id })
       .populate('user', ['name', 'avatar'])
@@ -38,7 +36,6 @@ router.get(
         return res.json(profile)
       })
       .catch(err => res.status(404).json(err))
-
   })
 
 /**
@@ -59,8 +56,7 @@ router.get('/all', (req, res) => {
       }
       res.json(profiles)
     })
-    .catch(err => res.status(404).json({ profile: 'There are no profiles' }))
-
+    .catch(err => res.status(404).json({ profile: 'There are no profiles', error: err }))
 })
 
 /**
@@ -80,8 +76,7 @@ router.get('/handle/:handle', (req, res) => {
       }
       res.json(profile)
     })
-    .catch(err => res.status(404).json({ profile: 'There is no profile for this user' }))
-
+    .catch(err => res.status(404).json({ profile: 'There is no profile for this user', error: err }))
 })
 
 /**
@@ -102,8 +97,7 @@ router.get('/user/:user_id', (req, res) => {
       }
       res.json(profile)
     })
-    .catch(err => res.status(404).json({ profile: 'There is no profile for this user' }))
-
+    .catch(err => res.status(404).json({ profile: 'There is no profile for this user', error: err }))
 })
 
 /**
@@ -184,7 +178,6 @@ router.post(
   '/experience',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     const { errors, isValid } = validateExperienceInput(req.body)
 
     // Check Validation
@@ -208,7 +201,6 @@ router.post(
         // add to experience array
         profile.experience.unshift(newExp)
         profile.save().then(profile => res.json(profile))
-
       })
   }
 )
@@ -260,7 +252,6 @@ router.delete(
   '/experience/:exp_id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         // get remove index
@@ -290,7 +281,6 @@ router.delete(
   '/education/:edu_id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         // get remove index
@@ -305,7 +295,6 @@ router.delete(
         } else {
           res.status(404).json({ success: false, msg: 'Invalid exp_id' })
         }
-
       })
       .catch(err => res.status(404).json(err))
   }
@@ -321,13 +310,11 @@ router.delete(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
     Profile.findOneAndRemove({ user: req.user.id })
       .then(() => {
         User.findOneAndRemove({ _id: req.user.id })
           .then(() => res.json({ success: true }))
       })
-
   }
 )
 
