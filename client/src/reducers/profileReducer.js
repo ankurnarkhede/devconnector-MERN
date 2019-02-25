@@ -1,7 +1,11 @@
 /**
  * Created by ankur at 20/2/19 6:45 AM.
  */
-import { CLEAR_CURRENT_PROFILE, GET_PROFILE, PROFILE_LOADING } from '../actions/types'
+import {
+  CLEAR_CURRENT_PROFILE,
+  GET_PROFILE,
+  PROFILE_LOADING
+} from '../actions/types'
 
 const initialState = {
   profile: null,
