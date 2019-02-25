@@ -11,7 +11,20 @@ class CreateProfile extends Component {
     super(props)
     this.state = {
       displaySocialInputs: false,
-      handle: ''
+      handle: '',
+      company: '',
+      website: '',
+      location: '',
+      status: '',
+      skills: '',
+      githubusername: '',
+      bio: '',
+      twitter: '',
+      facebook: '',
+      linkedin: '',
+      youtube: '',
+      instagram: '',
+      errors: {}
     }
   }
 
