@@ -48,7 +48,7 @@ class CreateProfile extends Component {
     const { errors } = this.state
 
     // Select options for status
-    const options=[
+    const options = [
       { label: '* Select Professional Status', value: 0 },
       { label: 'Developer', value: 'Developer' },
       { label: 'Junior Developer', value: 'Junior Developer' },
@@ -89,8 +89,6 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info='A unique handle to your profile URL.'
                 />
-
-
 
               </form>
 
