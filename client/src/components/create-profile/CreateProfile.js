@@ -30,9 +30,36 @@ class CreateProfile extends Component {
       instagram: '',
       errors: {}
     }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onSubmit (e) {
+    e.preventDefault()
+    console.log('submit')
+  }
+
+  onChange (e) {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render () {
+    const { errors } = this.state
+
+    // Select options for status
+    const options=[
+      { label: '* Select Professional Status', value: 0 },
+      { label: 'Developer', value: 'Developer' },
+      { label: 'Junior Developer', value: 'Junior Developer' },
+      { label: 'Senior Developer', value: 'Senior Developer' },
+      { label: 'Manager', value: 'Manager' },
+      { label: 'Student or Learning', value: 'Student or Learning' },
+      { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
+      { label: 'Intern', value: 'Intern' },
+      { label: 'Other', value: 'Other' }
+    ]
+
     return (
       <div className='create-profile'>
         <div className='container'>
@@ -43,6 +70,29 @@ class CreateProfile extends Component {
                 Let's get some information to make your profile stand out
               </p>
               <small className='d-block pb-3'>* = required fields</small>
+
+              <form onSubmit={this.onSubmit}>
+                <TextFieldGroup
+                  placeholder='* Profile Handle'
+                  name='handle'
+                  onChange={this.onChange}
+                  value={this.state.handle}
+                  error={errors.handle}
+                  info='A unique handle to your profile URL.'
+                />
+
+                <SelectListGroup
+                  placeholder='* Profile Handle'
+                  name='handle'
+                  onChange={this.onChange}
+                  value={this.state.handle}
+                  error={errors.handle}
+                  info='A unique handle to your profile URL.'
+                />
+
+
+
+              </form>
 
             </div>
           </div>
