@@ -63,7 +63,6 @@ class CreateProfile extends Component {
     }
 
     this.props.createProfile(profileData, this.props.history)
-
   }
 
   onChange (e) {
