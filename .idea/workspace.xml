@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24560c72-96f1-4a03-b88d-bfe28fc733f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mongoSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mongoSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/create-profile/CreateProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/create-profile/CreateProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validation/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/validation/profile.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/create-profile/CreateProfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="203" column="45" selection-start-line="203" selection-start-column="45" selection-end-line="203" selection-end-column="45" />
+            <state relative-caret-position="93">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="e#49#89#0" expanded="true" />
               </folding>
@@ -72,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/actions/profileActions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
               <folding>
                 <element signature="e#49#74#0" expanded="true" />
               </folding>
@@ -254,7 +251,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.mongoOptions" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -340,21 +337,7 @@
       <workItem from="1551779449455" duration="378000" />
       <workItem from="1551783196917" duration="5427000" />
       <workItem from="1551849694602" duration="97000" />
-      <workItem from="1551852668380" duration="3631000" />
-    </task>
-    <task id="LOCAL-00035" summary="26] get, delete post routes">
-      <created>1546755720452</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1546755720452</updated>
-    </task>
-    <task id="LOCAL-00036" summary="27] like and dislike posts">
-      <created>1546778616743</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1546778616743</updated>
+      <workItem from="1551852668380" duration="5226000" />
     </task>
     <task id="LOCAL-00037" summary="28] add, delete comment routes">
       <created>1546803912119</created>
@@ -685,15 +668,28 @@
       <option name="project" value="LOCAL" />
       <updated>1551185545658</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="52] Create profile func">
+      <created>1551252967907</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1551252967907</updated>
+    </task>
+    <task id="LOCAL-00085" summary="52] Create profile func">
+      <created>1551256528582</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1551256528582</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188289000" />
+    <option name="totallyTimeSpent" value="189884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="25" width="1321" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49889624" visible="true" weight="0.27686274" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -714,7 +710,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.5551783" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.55178267" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.55178267" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="GraphQL" order="13" show_stripe_button="false" weight="0.3293718" />
@@ -777,7 +773,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="32] basic layout" />
     <MESSAGE value="33] react router setup" />
     <MESSAGE value="33] react router setup- basic routing" />
     <MESSAGE value="33] register form" />
@@ -802,7 +797,8 @@
     <MESSAGE value="49] Create profile component" />
     <MESSAGE value="50] Form field components" />
     <MESSAGE value="51] Creating profile form" />
-    <option name="LAST_COMMIT_MESSAGE" value="51] Creating profile form" />
+    <MESSAGE value="52] Create profile func" />
+    <option name="LAST_COMMIT_MESSAGE" value="52] Create profile func" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1174,7 +1170,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/actions/profileActions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
           <folding>
             <element signature="e#49#74#0" expanded="true" />
           </folding>
@@ -1183,8 +1179,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/create-profile/CreateProfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="203" column="45" selection-start-line="203" selection-start-column="45" selection-end-line="203" selection-end-column="45" />
+        <state relative-caret-position="93">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="e#49#89#0" expanded="true" />
           </folding>
