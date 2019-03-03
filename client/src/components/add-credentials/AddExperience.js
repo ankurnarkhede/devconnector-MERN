@@ -31,8 +31,8 @@ class AddExperience extends Component {
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    if(nextProps.errors){
-      this.setState({errors:nextProps.errors})
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors })
     }
   }
 
@@ -50,7 +50,6 @@ class AddExperience extends Component {
     }
 
     this.props.addExperience(expData, this.props.history)
-
   }
 
   onChange (e) {
