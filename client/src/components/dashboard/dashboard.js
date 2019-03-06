@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import Spinner from '../common/spinner'
 import ProfileActions from './ProfileActions'
+import Experience from './Experience'
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -25,7 +26,7 @@ class Dashboard extends Component {
     let dashboardContent
 
     if (profile === null || loading) {
-      dashboardContent = <Spinner />
+      dashboardContent = <Spinner/>
     } else {
       // check if logged inuser has profile data
       if (Object.keys(profile).length > 0) {
@@ -34,11 +35,14 @@ class Dashboard extends Component {
             <p className='lead text-muted'> Welcome
               <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
-            <ProfileActions />
+            <ProfileActions/>
+            <Experience experience={profile.experience}/>
 
             {/* TODO: exp and edu */}
             <div style={{ marginBottom: '60px' }}>
-              <button onClick={this.onDeleteClick.bind(this)} className='btn btn-danger'>Delete My Account</button>
+              <button onClick={this.onDeleteClick.bind(this)}
+                      className='btn btn-danger'>Delete My Account
+              </button>
             </div>
 
           </div>
@@ -85,4 +89,5 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard)
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard)
