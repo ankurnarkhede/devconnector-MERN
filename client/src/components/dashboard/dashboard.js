@@ -10,6 +10,7 @@ import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import Spinner from '../common/spinner'
 import ProfileActions from './ProfileActions'
 import Experience from './Experience'
+import Education from './Education'
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -37,8 +38,7 @@ class Dashboard extends Component {
             </p>
             <ProfileActions/>
             <Experience experience={profile.experience}/>
-
-            {/* TODO: exp and edu */}
+            {/*<Education experience={profile.education}/>*/}
             <div style={{ marginBottom: '60px' }}>
               <button onClick={this.onDeleteClick.bind(this)}
                       className='btn btn-danger'>Delete My Account
