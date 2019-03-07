@@ -194,7 +194,7 @@ router.post(
           location: req.body.location,
           from: req.body.from,
           to: req.body.to,
-          current: req.body.current,
+          current: Boolean(req.body.current),
           description: req.body.description
         }
 
