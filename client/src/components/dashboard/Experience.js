@@ -26,7 +26,7 @@ class Experience extends Component {
         </td>
         <td>
           <button onClick={this.onDeleteClick.bind(this, exp._id)}
-                  className='btn btn-danger'>Delete
+            className='btn btn-danger'>Delete
           </button>
         </td>
       </tr>
@@ -37,12 +37,12 @@ class Experience extends Component {
         <h4 className='mb-4'>Experience Credentials</h4>
         <table className='table'>
           <thead>
-          <tr>
-            <th>Company</th>
-            <th>Title</th>
-            <th>Years</th>
-            <th/>
-          </tr>
+            <tr>
+              <th>Company</th>
+              <th>Title</th>
+              <th>Years</th>
+              <th />
+            </tr>
           </thead>
           {experience}
         </table>
