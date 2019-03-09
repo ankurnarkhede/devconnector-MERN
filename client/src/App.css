@@ -38,6 +38,7 @@ img {
     color: #bbb !important;
 }
 
+/*footer stick to bottom*/
 footer {
     position: absolute;
     left: 0;
