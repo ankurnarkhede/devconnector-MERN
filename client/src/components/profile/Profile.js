@@ -24,7 +24,7 @@ class Profile extends Component {
     const { profile, loading } = this.props.profile
     let profileContent
     if (profile === null || loading) {
-      profileContent = <Spinner />
+      profileContent = <Spinner/>
     } else {
       profileContent = (
         <div>
@@ -34,12 +34,15 @@ class Profile extends Component {
                 Back To Profiles
               </Link>
             </div>
-            <div className='col-md-6' />
+            <div className='col-md-6'/>
           </div>
           <ProfileHeader profile={profile}/>
-          <ProfileAbout />
-          <ProfileCreds />
-          <ProfileGithub />
+          <ProfileAbout profile={profile}/>
+          <ProfileCreds
+            education={profile.education}
+            experience={profile.experience}
+          />
+          <ProfileGithub/>
         </div>
       )
     }
