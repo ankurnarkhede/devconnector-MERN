@@ -1,5 +1,6 @@
 # devconnector-MEAN
 Social Network Application for Developers built with Nodejs, Express, MongoDB, React and Redux.
+Hosted at: https://devconnector-mean.herokuapp.com
 
 ## Quick Start
 
