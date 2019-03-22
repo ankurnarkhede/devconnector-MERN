@@ -37,7 +37,6 @@ class Dashboard extends Component {
           </div>
         )
       }
-
     }
 
     return (
@@ -57,7 +56,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 
 }
 
