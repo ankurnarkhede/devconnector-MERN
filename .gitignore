@@ -67,6 +67,8 @@ typings/
 .idea/**/tasks.xml
 *.iml
 
+coverage/
+
 #custom
 temp/
 
